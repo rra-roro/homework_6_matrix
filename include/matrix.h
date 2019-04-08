@@ -10,6 +10,11 @@ namespace roro_lib
 {
       namespace internal
       {
+            /*!   \brief  Эта структура является ключом для unordered_map, в котором хранятся используемые ячейки разреженной матрицы
+
+                          Структура содержит в себе координаты одной ячейки N-мерной матрицы. Координаты задаются для всех N измерений.
+
+            */
             template <std::size_t Dimension>
             struct key
             {
@@ -55,7 +60,12 @@ namespace roro_lib
 
 namespace std
 {
-      // custom specialization of std::hash can be injected in namespace std
+      /*!   \brief  Это специализация std::hash для нашей структуры key. 
+
+                    Это специализация функтора std::hash, который вычисляет хеш на основании координат из структуры key.
+                    Этот хэш используется в unordered_map, где хранятся используемые ячейки разреженной матрицы
+                    Эта специализация может быть объявлена в пространстве имен std
+      */
       template <std::size_t Dimension>
       struct hash<roro_lib::internal::key<Dimension>>
       {
@@ -81,6 +91,12 @@ namespace std
 
 namespace roro_lib
 {
+      /*!   \brief  Это шаблонный класс N-мерной бесконечной разряженной матрицы.
+
+             \tparam  T             -тип данных ячейки матрицы
+             \tparam  default_value -значение по умолчанию для ячеек матрицы
+             \tparam  Dimension     -размерность матицы
+      */
       template <typename T, T default_value = 0, std::size_t Dimension = 2>
       class matrix
       {
@@ -141,6 +157,11 @@ namespace roro_lib
             iternal_data_t um;
 
         public:
+            /*!   \brief  Вложенный класс N-мерной бесконечной разряженной  матрицы.<br>
+                          Класс отвечает за доступ к ячейки матрицы через индексацию многомерного массива в стиле C
+
+                   \tparam  I -индекс текущей размерности матрицы
+            */
             template <std::size_t I>
             class indexation_matrix
             {
@@ -202,6 +223,11 @@ namespace roro_lib
                   internal::key<Dimension> key;
             };
 
+            /*!   \brief  Вложенный класс N-мерной бесконечной разряженной  матрицы.<br>
+                          Класс отвечает за итерацию всех ячеек матрицы, что заняты НЕ значениями по умолчанию
+
+                  При разыменовании итератора получаем std::tuple содержащий координаты и значение данной ячейки матрицы.
+            */
             template <typename MapIter>
             class matrix_iterator
             {
