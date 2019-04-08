@@ -17,7 +17,7 @@ void help()
        Options:  
        -version                -get version of program
        -?                      -about program (this info)
-       -math_oder_dimensions   -output dimensions at math order. Example: x, y
+       -math_oder_dimensions   -output dimensions at math order (like x, y). Example: column, row   
                                 By Default: row, column
 )" << endl;
 }
