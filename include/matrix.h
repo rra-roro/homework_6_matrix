@@ -51,8 +51,7 @@ namespace roro_lib
       {
         public:
             struct matrix_internal;
-            template <typename MapIter>
-            class matrix_iter;
+            template <typename MapIter> class matrix_iter;
 
             using iternal_type = std::unordered_map<internal::KeyYX, T>;
             using size_type = typename iternal_type::size_type;
@@ -101,6 +100,7 @@ namespace roro_lib
         private:
             iternal_type um;
 
+        public:
             struct matrix_internal
             {
                   iternal_type& um;
