@@ -19,6 +19,8 @@ namespace roro_lib
                   coordinates_t coordinates = { 0 };
                   iterator_t it = coordinates.begin();
 
+                  key() = delete;
+
                   key(std::size_t coordinate)
                   {
                         *it = coordinate;
@@ -44,7 +46,7 @@ namespace roro_lib
             };
 
             template <std::size_t Dimension>
-            bool operator==(const key<Dimension>& arg1, const key<Dimension>& arg2) noexcept
+            bool operator==(const key<Dimension>& arg1, const key<Dimension>& arg2)
             {
                   return (arg1.coordinates == arg2.coordinates);
             }
@@ -243,7 +245,7 @@ namespace roro_lib
                         return &current_node;
                   }
 
-                  value_type& operator*() noexcept
+                  value_type& operator*()
                   {
                         current_node = std::tuple_cat(current_internal_iter->first.coordinates,
                                                       std::make_tuple(current_internal_iter->second));
@@ -251,18 +253,18 @@ namespace roro_lib
                   }
 
                   template <typename U>
-                  bool operator==(const matrix_iterator<U>& iter) const noexcept
+                  bool operator==(const matrix_iterator<U>& iter) const 
                   {
                         return current_internal_iter == iter.current_internal_iter;
                   }
 
                   template <typename U>
-                  bool operator!=(const matrix_iterator<U>& iter) const noexcept
+                  bool operator!=(const matrix_iterator<U>& iter) const 
                   {
                         return current_internal_iter != iter.current_internal_iter;
                   }
 
-                  matrix_iterator& operator++() noexcept
+                  matrix_iterator& operator++()
                   {
                         ++current_internal_iter;
                         return *this;
