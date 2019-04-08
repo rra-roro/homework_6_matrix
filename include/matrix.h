@@ -58,7 +58,7 @@ namespace roro_lib
             using size_type = typename iternal_type::size_type;
 
             using iterator = matrix_iter<typename iternal_type::iterator>;
-            using const_iterator = matrix_iter<typename const iternal_type::iterator>;
+            using const_iterator = const matrix_iter<typename iternal_type::iterator>;
 
 
             matrix() = default;
