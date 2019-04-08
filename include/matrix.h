@@ -3,42 +3,75 @@
 #include <cassert>
 #include <initializer_list>
 #include <tuple>
+#include <array>
+#include <iterator>
 
 namespace roro_lib
 {
       namespace internal
       {
-            struct KeyYX
+            template <std::size_t Dimension>
+            struct key_t
             {
-                  size_t row;
-                  size_t column;                  
-                  KeyYX(std::initializer_list<size_t> i_list) : row(*i_list.begin()),
-                                                                column(*(i_list.end() - 1)){};
-                  KeyYX(const KeyYX& key) : row(key.row), column(key.column){};
-                  KeyYX(KeyYX&& key) : row(key.row), column(key.column){};
+                  using coordinates_t = std::array<std::size_t, Dimension>;
+                  using iterator = typename coordinates_t::iterator;
+
+                  coordinates_t coordinates = { 0 };
+                  iterator it = coordinates.begin();
+
+                  key_t(std::size_t coordinate)
+                  {
+                        *it = coordinate;
+                        ++it;
+                  };
+
+                  key_t(const key_t& key) : coordinates(key.coordinates),
+                                            it(coordinates.begin() +
+                                                std::distance(const_cast<key_t&>(key).coordinates.begin(), key.it))
+                  {
+                  };
+
+                  key_t(key_t&& key) : it(key.it)
+                  {
+                        coordinates.swap(key.coordinates);
+                  };
+
+                  void push_back(std::size_t coordinate)
+                  {
+                        *it = coordinate;
+                        ++it;
+                  };
             };
 
-            bool operator==(const KeyYX& arg1, const KeyYX& arg2) noexcept
+            template <std::size_t Dimension>
+            bool operator==(const key_t<Dimension>& arg1, const key_t<Dimension>& arg2) noexcept
             {
-                  return (arg1.row == arg2.row) && (arg1.column == arg2.column);
-            }            
+                  return (arg1.coordinates == arg2.coordinates);
+            }
       }
 }
 
 namespace std
 {
       // custom specialization of std::hash can be injected in namespace std
-      template <>
-      struct hash<roro_lib::internal::KeyYX>
+      template <std::size_t Dimension>
+      struct hash<roro_lib::internal::key_t<Dimension>>
       {
-            using argument_type = roro_lib::internal::KeyYX;
-            using result_type = size_t;
+            using argument_type = roro_lib::internal::key_t<Dimension>;
+            using result_type = std::size_t;
 
             result_type operator()(const argument_type& key) const noexcept
             {
-                  result_type const h1(std::hash<decltype(key.row)>{}(key.row));
-                  result_type const h2(std::hash<decltype(key.column)>{}(key.column));
-                  return h1 ^ (h2 << 1);
+                  using type_hash = typename decltype(key.coordinates)::value_type;
+
+                  result_type h = std::hash<type_hash>{}(key.coordinates[0]);
+                  for (std::size_t shift = 1; shift < Dimension; ++shift)
+                  {
+                        result_type h_tmp = std::hash<type_hash>{}(key.coordinates[shift]);
+                        h ^= (h_tmp << shift);
+                  }
+
+                  return h;
             }
       };
 }
@@ -46,14 +79,18 @@ namespace std
 
 namespace roro_lib
 {
-      template <typename T, T default_value = 0>
+      template <typename T, T default_value = 0, std::size_t Dimension = 2>
       class matrix
       {
-        public:
-            struct matrix_internal;
-            template <typename MapIter> class matrix_iter;
+            static_assert(Dimension != 0, "Dimension shoudn't be zero");
 
-            using iternal_type = std::unordered_map<internal::KeyYX, T>;
+        public:
+            template <std::size_t I>
+            struct matrix_internal;
+            template <typename MapIter>
+            class matrix_iter;
+
+            using iternal_type = std::unordered_map<internal::key_t<Dimension>, T>;
             using size_type = typename iternal_type::size_type;
 
             using iterator = matrix_iter<typename iternal_type::iterator>;
@@ -67,9 +104,9 @@ namespace roro_lib
             matrix& operator=(matrix&&) = default;
 
 
-            matrix_internal operator[](size_t row)
+            auto operator[](std::size_t row)
             {
-                  return matrix_internal(um, row);
+                  return matrix_internal<1>(um, row);
             }
 
             size_type size() noexcept
@@ -101,30 +138,36 @@ namespace roro_lib
             iternal_type um;
 
         public:
+            template <std::size_t I>
             struct matrix_internal
             {
                   iternal_type& um;
-                  internal::KeyYX key = { 0, 0 };
-                  matrix_internal(iternal_type& um, size_t row) : um(um), key{ row, 0 } {}
+                  internal::key_t<Dimension> key;
+                  matrix_internal(iternal_type& um, std::size_t row) : um(um), key(row) {}
 
-                  struct item_t;
+                  template <std::size_t U>
+                  matrix_internal(const matrix_internal<U>& arg) : um(arg.um), key(arg.key) {}
 
-                  matrix_internal& operator[](size_t column)
+                  auto operator[](std::size_t column)
                   {
-                        key.column = column;
-                        return *this;
+                        static_assert(I != Dimension, "Error using operator[]: class 'matrix' has less dimensions.");
+                        key.push_back(column);
+                        return matrix_internal<I + 1>(*this);
                   }
 
-                  matrix_internal& operator=(T value)
+                  auto operator=(T value)
                   {
+                        static_assert(I == Dimension, "Error using operator[]: class 'matrix' has more dimensions.");
+
                         if (value != default_value)
                               um[key] = value;
-                        else if (um.count(key) == 1)
+                        else
+                        if (um.count(key) == 1)
                         {
                               um.erase(key);
                         }
 
-                        return *this;
+                        return matrix_internal<I>(*this);
                   }
 
                   operator T()
@@ -144,11 +187,12 @@ namespace roro_lib
             class matrix_iter
             {
                   MapIter current_iter;
-                  std::tuple<std::size_t, std::size_t, T> current_node;
+
+                  decltype(std::tuple_cat(current_iter->first.coordinates, std::make_tuple(current_iter->second))) current_node;
 
               public:
                   using iterator_category = std::forward_iterator_tag;
-                  using value_type = std::tuple<std::size_t, std::size_t, T>;
+                  using value_type = decltype(current_node);
                   using difference_type = ptrdiff_t;
                   using pointer = value_type*;
                   using reference = value_type&;
@@ -171,17 +215,13 @@ namespace roro_lib
 
                   value_type* operator->()
                   {
-                        current_node = std::make_tuple(current_iter->first.row,
-                                                       current_iter->first.column,
-                                                       current_iter->second);
+                        current_node = std::tuple_cat(current_iter->first.coordinates, std::make_tuple(current_iter->second));
                         return &current_node;
                   }
 
                   value_type& operator*() noexcept
                   {
-                        current_node = std::make_tuple(current_iter->first.row,
-                                                       current_iter->first.column,
-                                                       current_iter->second);
+                        current_node = std::tuple_cat(current_iter->first.coordinates, std::make_tuple(current_iter->second));
                         return current_node;
                   }
 
