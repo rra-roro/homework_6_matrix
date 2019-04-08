@@ -13,10 +13,12 @@ void help()
       cout << R"(
  This demo is my matrix.
 
-    matrix  [-version | -? ]
+    matrix  [-version | -? | -math_oder_dimensions]
        Options:  
-       -version    -get version of program
-       -?          -about program (this info)     
+       -version                -get version of program
+       -?                      -about program (this info)
+       -math_oder_dimensions   -output dimensions at math order. Example: x, y
+                                By Default: row, column
 )" << endl;
 }
 
@@ -37,6 +39,7 @@ int main(int argc, char* argv[])
             PCL.AddFormatOfArg("?", no_argument, '?');
             PCL.AddFormatOfArg("help", no_argument, '?');
             PCL.AddFormatOfArg("version", no_argument, 'v');
+            PCL.AddFormatOfArg("math_oder_dimensions", no_argument, 'm');
 
             PCL.SetShowError(false);
             PCL.Parser(argc, argv);
@@ -78,9 +81,16 @@ int main(int argc, char* argv[])
             for (auto c : diagonal_matrix)
             {
                   auto [row, column, v] = c;
-                  std::cout << row << "x" << column << " " << v << std::endl;
-            }
 
+                  if (PCL.Option['m'])
+                  {
+                        std::cout << column << "x" << row << " " << v << std::endl;
+                  }
+                  else
+                  {
+                        std::cout << row << "x" << column << " " << v << std::endl;
+                  }                  
+            }
       }
       catch (const exception& ex)
       {
