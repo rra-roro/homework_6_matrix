@@ -205,6 +205,9 @@ namespace roro_lib
 
                   operator T()
                   {
+                        static_assert(I == Dimension,
+                            "Error using operator[]: class 'matrix' has more dimensions.");
+
                         if (um.count(key) == 0)
                         {
                               return default_value;
