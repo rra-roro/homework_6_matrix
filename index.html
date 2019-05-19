@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>matrix: Титульная страница</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">matrix
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li class="current"><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">matrix Документация</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h2>Особенности моей реализации следующие:</h2>
+<ol type="1">
+<li>Все основные операции и требования к реализации 2-мерной разряженной бесконечной матрицы – выполнены.</li>
+<li>Но на самом деле реализована <b>N-мерная матрица</b><br/>
+ Размерность матрицы задается 3-м параметром. Например, 3x-мерная матрица: <div class="fragment"><div class="line">Matrix&lt;int,-1, 3&gt; matrix;</div>
+</div><!-- fragment --></li>
+<li>Реализована каноническая форма оператора = Следующее выражение, работает: <div class="fragment"><div class="line">((matrix[100][100] = 314) = 0) = 217</div>
+</div><!-- fragment --></li>
+<li>Реализация основана на <b>unordered_map</b>, хеш вычисляется из координат, записываемого значения в марицу</li>
+<li>Код снабжен проверкой времени компиляции, если количество скобочек [] при доступе к элементу не соответствует размерности матрицы</li>
+<li>Примеры работы с N-мерной матрицей и оператором = можно посмотреть в тестах.</li>
+<li>По умолчанию, позиции занятых ячеек выводятся в формате <blockquote class="doxtable">
+<p><b>row</b> х <b>column</b></p>
+<p></p>
+</blockquote>
+Если вызвать <b>matrix</b> со следующей опцией: <div class="fragment"><div class="line">matrix  -math_oder_dimensions</div>
+</div><!-- fragment --> то формат позиции занятых ячеек будет: <blockquote class="doxtable">
+<p><b>column</b> х <b>row</b></p>
+<p></p>
+</blockquote>
+</li>
+</ol>
+<p>Репозиторий: <a href="https://github.com/rra-roro/homework_6_matrix">https://github.com/rra-roro/homework_6_matrix</a> </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

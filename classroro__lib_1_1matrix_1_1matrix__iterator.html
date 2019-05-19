@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>matrix: Шаблон класса roro_lib::matrix&lt; T, default_value, Dimension &gt;::matrix_iterator&lt; typename &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">matrix
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceroro__lib.html">roro_lib</a></li><li class="navelem"><a class="el" href="classroro__lib_1_1matrix.html">matrix</a></li><li class="navelem"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classroro__lib_1_1matrix_1_1matrix__iterator-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Шаблон класса roro_lib::matrix&lt; T, default_value, Dimension &gt;::matrix_iterator&lt; typename &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Вложенный класс N-мерной бесконечной разряженной матрицы.<br/>
+ Класс отвечает за итерацию всех ячеек матрицы, что заняты НЕ значениями по умолчанию  
+ <a href="classroro__lib_1_1matrix_1_1matrix__iterator.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="matrix_8h_source.html">matrix.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ae76ae754d9afc0fc6778100e411c1ee6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ae76ae754d9afc0fc6778100e411c1ee6">iterator_category</a> = std::forward_iterator_tag</td></tr>
+<tr class="separator:ae76ae754d9afc0fc6778100e411c1ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c5d76c53c2ce48fdf6ceb9fa1ba088"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a> = node_t</td></tr>
+<tr class="separator:ac2c5d76c53c2ce48fdf6ceb9fa1ba088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6672218ea18502941f97555967becbd0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a6672218ea18502941f97555967becbd0">difference_type</a> = ptrdiff_t</td></tr>
+<tr class="separator:a6672218ea18502941f97555967becbd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac99be59b888f61b8205d2273393fb3db"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac99be59b888f61b8205d2273393fb3db">pointer</a> = <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a> *</td></tr>
+<tr class="separator:ac99be59b888f61b8205d2273393fb3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961cfa6cb6a52f360e1ecdebd98fe66e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a961cfa6cb6a52f360e1ecdebd98fe66e">reference</a> = <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a> &amp;</td></tr>
+<tr class="separator:a961cfa6cb6a52f360e1ecdebd98fe66e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6d8c07a921a03fc9027a6299c6b6b5f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a6d8c07a921a03fc9027a6299c6b6b5f4">matrix_iterator</a> () noexcept</td></tr>
+<tr class="separator:a6d8c07a921a03fc9027a6299c6b6b5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd693a7e263f05188c0a634ae837a42c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#afd693a7e263f05188c0a634ae837a42c">matrix_iterator</a> (MapIter it) noexcept</td></tr>
+<tr class="separator:afd693a7e263f05188c0a634ae837a42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6333695ebcd6140a0c9f91042d91652"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:af6333695ebcd6140a0c9f91042d91652"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#af6333695ebcd6140a0c9f91042d91652">matrix_iterator</a> (const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;iter) noexcept</td></tr>
+<tr class="separator:af6333695ebcd6140a0c9f91042d91652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0217e78619480874af13290f3a4ae345"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a0217e78619480874af13290f3a4ae345"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a0217e78619480874af13290f3a4ae345">operator=</a> (const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;iter) noexcept</td></tr>
+<tr class="separator:a0217e78619480874af13290f3a4ae345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19dcbbda36bc428208e7a16bff00e53c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a19dcbbda36bc428208e7a16bff00e53c">operator-&gt;</a> ()</td></tr>
+<tr class="separator:a19dcbbda36bc428208e7a16bff00e53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb45b456eda48432adf66d3086a86379"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#aeb45b456eda48432adf66d3086a86379">operator*</a> ()</td></tr>
+<tr class="separator:aeb45b456eda48432adf66d3086a86379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0301cdc350080c4096c65ac15bee426f"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a0301cdc350080c4096c65ac15bee426f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a0301cdc350080c4096c65ac15bee426f">operator==</a> (const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;iter) const </td></tr>
+<tr class="separator:a0301cdc350080c4096c65ac15bee426f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a520700bdabee5c352b5ae95287251a"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a2a520700bdabee5c352b5ae95287251a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a2a520700bdabee5c352b5ae95287251a">operator!=</a> (const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;iter) const </td></tr>
+<tr class="separator:a2a520700bdabee5c352b5ae95287251a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0db65d8a57a6582a89748c3b1f9e5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#aef0db65d8a57a6582a89748c3b1f9e5a">operator++</a> ()</td></tr>
+<tr class="separator:aef0db65d8a57a6582a89748c3b1f9e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d7b8bd0fd97520ec9340c039e8e7556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a4d7b8bd0fd97520ec9340c039e8e7556">operator++</a> (int)</td></tr>
+<tr class="separator:a4d7b8bd0fd97520ec9340c039e8e7556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><h3>template&lt;typename T, T default_value = 0, std::size_t Dimension = 2&gt;<br/>
+template&lt;typename&gt;<br/>
+class roro_lib::matrix&lt; T, default_value, Dimension &gt;::matrix_iterator&lt; typename &gt;</h3>
+
+<p>Вложенный класс N-мерной бесконечной разряженной матрицы.<br/>
+ Класс отвечает за итерацию всех ячеек матрицы, что заняты НЕ значениями по умолчанию </p>
+<p>При разыменовании итератора получаем std::tuple содержащий координаты и значение данной ячейки матрицы. </p>
+</div><h2 class="groupheader">Определения типов</h2>
+<a class="anchor" id="a6672218ea18502941f97555967becbd0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a6672218ea18502941f97555967becbd0">difference_type</a> =  ptrdiff_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae76ae754d9afc0fc6778100e411c1ee6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ae76ae754d9afc0fc6778100e411c1ee6">iterator_category</a> =  std::forward_iterator_tag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac99be59b888f61b8205d2273393fb3db"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac99be59b888f61b8205d2273393fb3db">pointer</a> =  <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a>*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a961cfa6cb6a52f360e1ecdebd98fe66e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#a961cfa6cb6a52f360e1ecdebd98fe66e">reference</a> =  <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a>&amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac2c5d76c53c2ce48fdf6ceb9fa1ba088"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a> =  node_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="a6d8c07a921a03fc9027a6299c6b6b5f4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afd693a7e263f05188c0a634ae837a42c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">MapIter&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af6333695ebcd6140a0c9f91042d91652"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="a2a520700bdabee5c352b5ae95287251a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aeb45b456eda48432adf66d3086a86379"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a>&amp; <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aef0db65d8a57a6582a89748c3b1f9e5a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&amp; <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4d7b8bd0fd97520ec9340c039e8e7556"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a> <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a19dcbbda36bc428208e7a16bff00e53c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html#ac2c5d76c53c2ce48fdf6ceb9fa1ba088">value_type</a>* <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0217e78619480874af13290f3a4ae345"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&amp; <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0301cdc350080c4096c65ac15bee426f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T default_value = 0, std::size_t Dimension = 2&gt; </div>
+<div class="memtemplate">
+template&lt;typename &gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classroro__lib_1_1matrix.html">roro_lib::matrix</a>&lt; T, default_value, Dimension &gt;::<a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; typename &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classroro__lib_1_1matrix_1_1matrix__iterator.html">matrix_iterator</a>&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>include/<a class="el" href="matrix_8h_source.html">matrix.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>
