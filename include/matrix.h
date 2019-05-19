@@ -48,6 +48,18 @@ namespace roro_lib
                         *it = coordinate;
                         ++it;
                   };
+
+                  std::size_t get_hash() const
+                  {
+                        std::size_t h_value = std::hash<std::size_t>{}(coordinates[0]);
+                        for (std::size_t shift = 1; shift < Dimension; ++shift)
+                        {
+                              std::size_t h_tmp = std::hash<std::size_t>{}(coordinates[shift]);
+                              h_value ^= (h_tmp << shift);
+                        }
+
+                        return h_value;
+                  };
             };
 
             template <std::size_t Dimension>
@@ -74,16 +86,7 @@ namespace std
 
             result_t operator()(const argument_t& key_arg) const noexcept
             {
-                  using hash_t = typename decltype(key_arg.coordinates)::value_type;
-
-                  result_t h_value = std::hash<hash_t>{}(key_arg.coordinates[0]);
-                  for (std::size_t shift = 1; shift < Dimension; ++shift)
-                  {
-                        result_t h_tmp = std::hash<hash_t>{}(key_arg.coordinates[shift]);
-                        h_value ^= (h_tmp << shift);
-                  }
-
-                  return h_value;
+                  return key_arg.get_hash();
             }
       };
 }

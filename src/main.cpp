@@ -78,10 +78,8 @@ int main(int argc, char* argv[])
 
             cout << diagonal_matrix.size() << "\n";
 
-            for (auto& c : diagonal_matrix)
+            for (auto const& [row, column, v] : diagonal_matrix)
             {
-                  auto& [row, column, v] = c;
-
                   if (PCL.Option['m'])
                   {
                         std::cout << column << "x" << row << " " << v << std::endl;
@@ -103,7 +101,7 @@ int main(int argc, char* argv[])
             return EXIT_FAILURE;
       }
 
-      return 0;
+      return EXIT_SUCCESS;
 }
 
 #endif
