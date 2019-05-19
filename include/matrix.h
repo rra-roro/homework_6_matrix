@@ -106,17 +106,15 @@ namespace roro_lib
             static_assert(Dimension != 0, "Dimension shoudn't be zero");
 
         public:
-            template <std::size_t>
-            struct indexation_matrix;
-            template <typename>
-            class matrix_iterator;
+            template <std::size_t> struct indexation_matrix;
+            template <typename> class matrix_iterator;
 
             using iternal_data_t = std::unordered_map<internal::key<Dimension>, T>;
 
             using value_type = T;
             using size_type = typename iternal_data_t::size_type;
             using iterator = matrix_iterator<typename iternal_data_t::iterator>;
-            using const_iterator = const matrix_iterator<typename iternal_data_t::iterator>;
+            using const_iterator = matrix_iterator<typename iternal_data_t::const_iterator>;
 
 
             matrix() = default;
