@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
 
             for (auto& c : diagonal_matrix)
             {
-                  auto [row, column, v] = c;
+                  auto& [row, column, v] = c;
 
                   if (PCL.Option['m'])
                   {
