@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
 
             cout << diagonal_matrix.size() << "\n";
 
-            for (auto c : diagonal_matrix)
+            for (auto& c : diagonal_matrix)
             {
                   auto [row, column, v] = c;
 
